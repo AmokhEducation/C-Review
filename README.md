@@ -11,14 +11,23 @@ Autors Name:Email:ListNumber/s
 2- ?  
 
 ___List___:
-1-Volatile Variable. 
+--------------------------------
+1-Volatile Variable.
+-------------------------------- 
 2-Void Pointer.
+--------------------------------
 3-Interrupt Latency.
+--------------------------------
 4-printf() and scanf() functions.
+--------------------------------
 5-Difference between local variable and global variable.
+--------------------------------
 6-Difference between call by value and call by reference.
+--------------------------------
 7-Recursion.
+--------------------------------
 8-array.
+--------------------------------
 9-pointer.
 10-NULL pointer.
 11-far pointer.
