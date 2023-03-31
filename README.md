@@ -4,7 +4,7 @@ Some instructions, concepts and principles for C programming language
 ****************************************************
 www.amokh.ir
 **************************************************** 
-        Autors Name     :         Email         : ListNumber/s
+Autors Name:Email:ListNumber/s
 --------------------------------
 1- Amir Mardani (AmirM) : mir.mardani@gmail.com : 1 to 31
 --------------------------------
