@@ -42,6 +42,7 @@ Autors Name: Email : ListNumber/s
 29-print Fibonancci series without using recursion.
 30-print Fibonancci series with using recursion.
 31-pointer using examples.
+32- CI/CD pipeline
 */
 
 /*1-Volatile Variable:
@@ -933,7 +934,27 @@ uint32_t num;
 //The (uint32_t*) is a cast
 *(uint32_t*)(ptr+num);
 
+/*
+32- CI/CD pipeline
+Description:
+A CI/CD pipeline automates the process of software delivery. It builds code
+,runs tests, and helps you to safely deploy a new version of the software.
+CI/CD pipeline reduces manual errors, provides feedback to developers, and
+allows fast product iterations.
+stages of CI/CD pipeline:
+source	|	Build		|	Test		|	Deploy
+------------------------------------------------------
+Git push|	compile		|	smoke		|	staging
+		|	docker build|	unit		|	QA
+						|	integration	|	production
+------------------------------------------------------
+CI/CD tools:
+Jenkins: is an open-source Continuous Integration server that helps to 
+achieve the Continuous Integration Process 
 
+
+Example:
+*/
 
 
 #Address mapping
