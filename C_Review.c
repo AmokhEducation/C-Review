@@ -951,11 +951,48 @@ Git push|	compile		|	smoke		|	staging
 CI/CD tools:
 Jenkins: is an open-source Continuous Integration server that helps to 
 achieve the Continuous Integration Process 
-
-
-Example:
 */
 
+/*
+32- Complex Code to write Hello World
+Description:
+This code simply prints out hello world!
+Code:
+*/
+#include "stdio.h"
+#define 3
+#defineg (e/e)
+#defineh ((g+e)/2)
+#definef (e-g-h)
+#definej (e*e-g)
+#define k (j-h)
+#definel(x) tab2(x)/h
+#definem(n,a) ((n&(a))==(a))
+
+long tab1[]={ 989L, 5L, 26L, 0L, 88319L, 123L, 0L, 9367L };
+int tab2[] = { 4,6,10,14,22,26,34,38,46,58,62,74,82,86};
+main (m1,s) char *s; {
+	int a,b,c,d,o[k],n = (int)s;
+	if (m1==1){char b[2*j+f-g]; main (1(h+e)+h+e,b); printf(b);}
+	else switch (m1-=h){
+		case f:
+			a = (b=(c=(d=g)<<g)<<g)<<g;
+			return(m(n,a|c)|m(n,b)|m(n,a|d)|m(n,c|d));
+		case h:
+			for (a=f;a<j;++a)if(tab1[a]&&!(tab1[a]%((long)l(n))))return(a);
+		case g:
+			if(n<h)return(g);
+			if (n<j){n-=g;c='D';o[f]=h;o[g]=f;}
+			else {c='\r'-'\b';n-=j-g;o[f]=o[g]=g;}
+			if ((b=n)>=e)for (b=g<<g;b<n;++b)o[b]=o[b-h]+o[b-g]+c;
+			return (o[b-g]%n+k-h);
+		default:
+			if (m1-=e) main (m1-g+e+h, s+g); else * (s+g)=f;
+			for (*S=a=f; a<e;) *s=(*s<<e)|main(h+a++,(char *)m1);
+	}
+	}
+			
+			
 
 #Address mapping
 /*
