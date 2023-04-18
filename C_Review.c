@@ -1079,8 +1079,8 @@ Finally, the program returns 0 to indicate successful completion.
 #include <unistd.h>
 
 int main(){
-	int fd[2];
-	char buffer[20];
+	int fd[2]; //integer with 2 elements
+	char buffer[20]; //buffer with 20 elements
 	pid_t pid;
 	
 	/* create pipe */
@@ -1111,8 +1111,175 @@ int main(){
 		
 	}
 
+/*
+36- Macros
+Description:
+A macro is a label defined in the source code that
+is replaced by its value by the processor before
+compilation. Macros are initialized with the #define
+processor command and can be undefined with the #undef
+command. There are two types of macros:
+object-like macros
+function-like macros
 
+Object-like Macros
+Example:
+*/
+#include <stdio.h>
+#define PI 3.1416
+int main(){
+	float radius = 3;
+	float area;
+	area = PI * radius * radius;
+	printf("Area is: %f", area);
+	return 0;
+}
 
+/*
+...36- 
+Function-Like Macros
+Example:
+*/
+#define PI 3.1416
+#define AREA(r) r*r*PI
+int main()
+{
+	float radius = 5;
+	float result;
+	result = AREA (redius);
+	printf("Area is: %f", result);
+	return 0;
+}
+/*
+...36- 
+Predefined Macros:
+C has a number of predefined macros, including
+the following:
+__DATE__: Current date formated as MMMDDYYYY
+__TIME__: Current time formated as HH:MM:SS
+__FILE__: Current filename
+__LINE__: Current line number
+Example:
+*/
+#include <stdio.h>
+int main(){
+	char file[] = __FILE__;
+	char date[] = __DATE__;
+	char time[] = __TIME__;
+	char line = __LINE__;
+	
+	printf("File name: %s\n", file);
+	printf("Date: %s\n", date);
+	printf("Time: %s\n", time);
+	printf("Line number: %d\n", line);
+	
+}
+/*
+...36- 
+output:
+File name: main.c
+Date: Jun 25 2022
+Time: 14:05:33
+Line number: 7
+
+Undefining a Macro:
+Once defined, a macro can be undefined
+with the #undef command
+Using the macro after that point will
+result in a compile error.
+Example:
+*/
+#include <stdio.h>
+#define TEST 1
+int main(){
+	#undef TEST
+}
+
+/*
+37- goto Statement
+Description:
+The goto statement allows us to transfer control
+of the program to the specified label.
+The togo is an identifier. When the goto 
+statement is encountered, the control of the program
+jumps to label: and starts executing the code.
+Syntex:
+goto label;
+...
+...
+label: statement:
+	...
+	...
+Example Code:
+Program to calculate the sum and average of positive numbers
+if the user enters a negative number, the sum and averages
+are displayed
+*/
+#include <stdio.h>
+int main(){
+	const int maxInput = 100;
+	int i;
+	double number, average, sum = 0.0;
+	for (i=1;i<maxInput; ++i){
+		printf("%d. Enter a number:",i);
+		scanf("%lf",&number);
+		//go to jump if the user enters a negative number
+		if (number < 0.0){
+			goto jump;
+		}
+		sum += number;
+	}
+	
+	jump:
+		average = sum / (i - 1);
+		printf("Sum = %.2f\n", sum);
+		printf("Average = %.2f", average);
+		
+		return 0;
+}
+
+/*
+38 enums
+Description:
+an enumeration type (enum) is a data type that consists
+of integral constants. To define enums, the enum keyword used:
+syntax:
+
+enum flag {const1, const2,...,const3};
+
+BY default const1 is 0, const2 is 1 and so on. you can change
+default values of enum elements during declaration (if necessary):
+Example:
+*/
+enum suit {
+	club = 0,
+	diamonds = 10,
+	hearts = 20,
+	spades = 3,
+};
+/*
+...38-
+Enumerated Type Declaration:
+Here a variable check of the type enum boolean is crated, which
+the value of false in equal to 0 and the value of true is equal to 1.
+Example: Enumeration Type:
+*/
+
+enum boolean {false, true};
+enum boolean check; // declaring an enum variable
+//or:
+enum boolean {false, true} check;
+//Example of enum:
+enum week {sunday, monday, tuesday, wednesday, thursday,friday,saturday}
+
+int main()
+{
+	//creating today variable of enum week type
+	enum week today;
+	today = wednesday;
+	printf("Day %d", today+1);
+	return 0;
+}
 #Address mapping
 /*
 please read below example about Address maping:
