@@ -43,6 +43,8 @@ Autors Name: Email : ListNumber/s
 30-print Fibonancci series with using recursion.
 31-pointer using examples.
 32- CI/CD pipeline
+33- Complex Code to write Hello World
+34- K&R style function definition in C
 */
 
 /*1-Volatile Variable:
@@ -954,7 +956,7 @@ achieve the Continuous Integration Process
 */
 
 /*
-32- Complex Code to write Hello World
+33- Complex Code to write Hello World
 Description:
 This code simply prints out hello world!
 Code:
@@ -967,9 +969,9 @@ Code:
 #define j (e*e-g)
 #define k (j-h)
 #define l(x) tab2[x]/h
-#define m(n,a) ((n&(a))==(a))
+#define m(n,a) ((n&(a))==(a)) //if n==a then the m(n,a)==1 else m(n,a)==0
 
-long tab1[]={ 989L, 5L, 26L, 0L, 88319L, 123L, 0L, 9367L };
+long tab1[]={ 989L, 5L, 26L, 0L, 88319L, 123L, 0L, 9367L }; //L means It is a long integer literal.
 int tab2[] = { 4,6,10,14,22,26,34,38,46,58,62,74,82,86};
 main (m1,s) char *s; {
 	int a,b,c,d,o[k],n = (int)s;
@@ -993,7 +995,123 @@ main (m1,s) char *s; {
 	}
 
 			
-			
+/*
+34- K&R style function definition in C
+Description:
+Normally (ANSI syntax) you see function definitions like:
+*/			
+int foo(char* s, float f, struct Baz * b) {
+  return 5;
+}
+/*
+...34- 
+This describes the parameters of the function foo: how many there are,
+and what their types are. It does so using a parameter type list, but
+there's another way to do it: an initializer list:
+*/	
+int foo(s,f,b)
+char* s;
+float f;
+struct Baz *b;
+{
+	return 5;
+}
+/*
+...34- 
+K&R syntax is obsolete, you can skip it unless you have to maintain 
+very old code. Now ANSI syntax use
+*/	
+
+/*
+35- Pipe() System call
+Description:
+A pipe is a connection between two processes, such that the standard
+output from one process becomes the standard input of the other
+process
+Example Code1:
+*/
+#include <stdio>
+#include <unistd>
+#define MSGSIZE 16
+char* msg1 = "hello, world 	#1";
+char* msg2 = "hello, world	#2";
+char* msg3 = "hello, world 	#3";
+int main()
+{
+	char inbuf[MSGSIZE];
+	int p[2], i;
+	
+	if(pipe(p) < 0)
+		exit(1);
+	/*continued*/
+	/*write pipe*/
+	write(p[1], msg1, MSGSIZE)
+	write(p[1], msg2, MSGSIZE)
+	write(p[1], msg3, MSGSIZE)
+	
+	for (i=0; i<3; i++){
+		/*read pipe*/
+		read(p[0], inbuf, MSGSIZE);
+		printf("% s\n", inbuf);
+	}
+	return 0;
+}
+/*
+...35- 
+Output:
+hello, world #1
+hello, world #2
+hello, world #3
+.................
+Explain the code:
+The program creates a pipe using the pipe() function
+which returns two file descriptors, one for reading and one for writing.
+The program then writes three messages, msg1, msg2, and msg3, 
+to the pipe using the write() function. Each message has a size of MSGSIZE, 
+which is defined as 16 using a preprocessor #define statement.
+Next, the program enters a loop that reads from the pipe using the read() function
+It reads MSGSIZE bytes at a time into the inbuf array
+and prints each message using the printf() function.
+Finally, the program returns 0 to indicate successful completion.
+*/	
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main(){
+	int fd[2];
+	char buffer[20];
+	pid_t pid;
+	
+	/* create pipe */
+	if (pipe(fd) == -1){
+		perror("pipe");
+		exit(EXIT_FAILURE);
+	}
+	
+	/*fork process*/
+	pid = fork();
+	if (pid == -1){
+		perror("fork");
+		exit(EXIT_FAILURE);
+	} else if (pid == 0){
+		/* child process - read from pipe */
+		close(fd[1]);
+		read(fd[0], buffer, sizeof(buffer));
+		printf("Child process recieved message: %s\n", buffer);
+		close(fd[0]);
+		exit(EXIT_SUCCESS);
+	} else {
+		/* parent process - write to pipe */
+		close (fd[0]);
+		write (fd[1], "Hello, world!", 13);
+		close (fd[1]);
+		exit(EXIT_SUCCESS);
+	}
+		
+	}
+
+
 
 #Address mapping
 /*
@@ -1007,5 +1125,9 @@ please read below example about Structure size:
 
 */
 
+#CAN
+/*
+please read below about CAN:
 
+*/
 
