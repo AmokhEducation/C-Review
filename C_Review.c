@@ -1239,7 +1239,7 @@ int main(){
 }
 
 /*
-38 enums
+38- enums
 Description:
 an enumeration type (enum) is a data type that consists
 of integral constants. To define enums, the enum keyword used:
@@ -1262,6 +1262,7 @@ enum suit {
 Enumerated Type Declaration:
 Here a variable check of the type enum boolean is crated, which
 the value of false in equal to 0 and the value of true is equal to 1.
+enum variable can take only one value
 Example: Enumeration Type:
 */
 
@@ -1269,7 +1270,7 @@ enum boolean {false, true};
 enum boolean check; // declaring an enum variable
 //or:
 enum boolean {false, true} check;
-//Example of enum:
+//Example1 of enum:
 enum week {sunday, monday, tuesday, wednesday, thursday,friday,saturday}
 
 int main()
@@ -1280,6 +1281,56 @@ int main()
 	printf("Day %d", today+1);
 	return 0;
 }
+/*
+Output:
+Day 4
+*/
+//Example2 of enum:
+#include <stdio.h>
+enum suit {
+	club = 0;
+	diamonds = 10;
+	hearts = 20;
+	spades = 3;
+} card;
+int main()
+{
+	card = club;
+	printf("Size of enum variable = %d bytes", sizeof(card));
+	return 0;
+}
+/*
+Output:
+Size of enum variable = 4 bytes
+*/
+/*
+38- header files:
+1- #include <conio.h>: this header file used to take input from the keyborad given by the user and display output on the screen
+ - #include <windows.h>//this header is a shortcut for access to the C++ standard library. this is an opening-system specific header,
+					   //if you are compiling for windows you need it, and every compiler that supports windows will be okay with it.
+ - #include <dos.h>//this header file of C language contains functions for handling interrupts, producing sound, date and time functions etc.
+*/
+
+/*
+39- COORD:
+Description:
+COORD is a structure to hold screen COORDinates X and Y
+syntax:
+*/
+typedef struct _COORD {
+	SHORT X;
+	SHORT Y;
+}COORD, *PCOORD;
+/*
+40- system():
+Description:
+this function used to pass the comments that can be executed in the command processor
+or the terminal of the operating system and finally returns the commnad after it has been completed
+syntax:
+*/
+int system(char command)
+//Example:
+system("color B");//
 #Address mapping
 /*
 please read below example about Address maping:
