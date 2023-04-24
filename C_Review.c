@@ -1331,6 +1331,53 @@ syntax:
 int system(char command)
 //Example:
 system("color B");//
+
+			
+
+/*
+40- Memory Layout:
+Description:
+A typical memory representation of C program consists of the following sections.
+1. Text segment (i.e. instructions)
+2. Initialized data segment
+3. Uninitialized data segment (bss)
+4. Heap
+5. Stack
+syntax:
+High Address ->	-----------------------	
+										|command-line arguments and environment variables
+				-----------------------	
+				stack
+				-----------------------
+				.
+				.
+				.
+				-----------------------
+				heap
+				-----------------------	
+				uninitialized data (bss)	|initialized to zero by exec
+				-----------------------	
+				inilialized  data		|
+				-----------------------	|read from program file by exec
+				text					|
+Low Adress	->	-----------------------	
+
+A typical memory layout of a runing process.
+
+1. Text segment: A text segment, also known as a code segment or simply as text, is one of the
+sections of a program in an object file or in memory. Which contains executable instructions.
+As a memory region, a text segment may be placed below the heap or stack in order to prevent
+heaps and stack overflows from overwriting it.
+Usually, the text segment is sharable so that only a single copy needs to be in
+memory for frequently executed programs, such as text editors, the C
+compiler, the shells, and so on. Also, the text segment is often read-only, to
+prevent a program from accidentally modifying its instructions.
+
+2. Initialized Data Segment 
+called -> Data Segment -> is a protion of the virtual address space of a program
+contains the -> global variables & static variables -> that are initialized by the programmer
+*/
+
 #Address mapping
 /*
 please read below example about Address maping:
