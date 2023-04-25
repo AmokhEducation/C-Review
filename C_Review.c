@@ -1378,6 +1378,66 @@ called -> Data Segment -> is a protion of the virtual address space of a program
 contains the -> global variables & static variables -> that are initialized by the programmer
 */
 
+
+/*
+36- ISO26262 - Software Level of functional Safety
+Description:
+-- Production development at the software level:
+1. Safety of vehicle depends more and more on error-free software.
+2. Software faults must be avoided throug systematic development.
+3. The occurrence of faults must be countered by mechanisms for fault tolerance.
+4. Functional safety requires the software development process to be adapted to
+   the content and requirements of ISO 26262.
+5. Technical FS requirements must be detailed down to quality SW safety ones.
+6. The SW architecture must implement all functional requirements as well as safety mechanisms.
+7. Safety analyses must be performed to understand the dependencies between software components
+   and validate the software design.
+8. Software integration and tests must be specified in terms of methodology and carried out successfully
+9. Test coverage must be measured to understand the completeness of tests, and to support the 
+
+-- What's Fault:
+	abnormal condition that can cause an element or an item to fail
+-- Examples of faults:
+	1- an incorrect SW algorithm implementation causing an incorrect output
+	2- a voltage spike causing a power supply to produce more than the expected output
+	3- corruption of a pointer
+-- Faults in the ISO 26262:
+- Latent Fault:
+	any fault in a 'safety mechanism' is a good example for a latent fault
+	problem in a watchdog operation does not cause a safety goal violation
+	by itself. it will manifest as a failure only when another SW problem
+	(like a continous loop) is present.
+- Residual Fault:
+	in terms of diagnostic coverage (more about this in another video!).
+	the 'residue' refers to the faults that still remain after implementing
+	safety machanisms. for example:
+	a communication mechanism could have the following failure modes:
+	. loss of communication peer
+	. message corruption
+	. message unacceptable delay
+	. message loss
+	. unintended message repetition
+	. incorrect sequencing of messages
+	. message insertion
+	. message masquerading
+	. message incorrect addressing
+	let us assume that we introduce a SW safety mechanism that addresses all of
+	the failure modes except 'message masquerading'
+	message masquerading which remains unaddressed is considered as a 'Residual Fault'
+- Single Point Fault:
+	a failure mode of 'Draft' in a resistor that leads to a safety goal violation is 
+	an example for a 'Single Point Fault'
+	if there are no safety mechanisms introduced to prevent this fault from manifesting
+	itself as a safety goal violation. then this fault will be classified as a single
+	point fault.
+- Multi-point Fault:
+	consider the case of a HW redundancy implemented using 2 different components to
+	prevent a hazard. a fault happening in both the components is an example for a
+	multi-point fault.
+Object-like Macros
+Example:
+*/
+
 #Address mapping
 /*
 please read below example about Address maping:
