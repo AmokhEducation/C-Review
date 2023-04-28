@@ -1372,11 +1372,72 @@ Usually, the text segment is sharable so that only a single copy needs to be in
 memory for frequently executed programs, such as text editors, the C
 compiler, the shells, and so on. Also, the text segment is often read-only, to
 prevent a program from accidentally modifying its instructions.
+Text segment has read-only permission.
+Another Definition: after we compile the program, a binary file generates, which is used
+to execute our program by loading it into RAM. This binary file contains instructions and 
+these instructions get stored in the text segment of the memory.
 
 2. Initialized Data Segment 
 called -> Data Segment -> is a protion of the virtual address space of a program
-contains the -> global variables & static variables -> that are initialized by the programmer
+contains the -> external, global,static and constant variables -> that are initialized by the programmer
+at the time of variable declaration in the program. 
+because the variable maybe change during program execution so this memory section has read-write permition.
+But as const values has read-only permition so some values maybe are just read-only and other values are read-write
+
+Example:
+In below example the pointer variable hello1 comes under read-write area, and the value of the string
+literal "Data segment" lies comes under inilialized read data segment.
+variable global_var and pointer hello2 are declared outside the scope of main() function because of 
+which they are stored in the read-write part of the inilialized data segment but, global_var2 stored
+in the read-only part and also static a
 */
+#include <stdio.h>
+
+const hello1* = "Data segment";
+
+/*global variables stored in the read-write part of initialized data segment*/
+int global_var = 50;
+char* hello2 = "Hello World";
+/*global variables stored in the read-only part of initialized data segment*/
+const int global_var2 = 30;
+int main(){
+	//static variable stored in initialized data segment
+	static int a = 10;
+	//...
+	return 0;
+}
+
+/*
+...40- Memory Layout:
+3. Uninitialized Data Segment 
+is also known as bss (block started by symbol).
+The program loaded allocateds memory for this segment when it loads.
+Every data in bss is initialized to arithmetic 0 and pointers to null pointers
+by the kernel before the C program executes. BSS also contains all the static and
+global variables, initialized with arithmetic 0. Because values of variables stored
+in bss can be changed, this data segment has read-writes permissions.
+
+Example:
+*/
+#include <stdio.h>
+// Uninitialized global variable stored in the bss segment
+int global_variable;
+int main()
+{
+	//Uninitialized static variable stored in bss
+		static int static_variable;
+		
+		//..
+		printf("global variable = %d\n", global_variable);
+		printf("static_variable = %d\n", static_variable);
+		return 0;
+}
+/*
+Output:
+global_variable = 0
+static_variable = 0
+*/
+
 
 
 /*
