@@ -1418,6 +1418,9 @@ global variables, initialized with arithmetic 0. Because values of variables sto
 in bss can be changed, this data segment has read-writes permissions.
 
 Example:
+in below example both the variables global variable and static_variable are uninitialized.
+Hence they are stored in the bss segment in the memory layout. Before the program execution begins,
+these values are initialized with value 0 by the kernel
 */
 #include <stdio.h>
 // Uninitialized global variable stored in the bss segment
@@ -1438,6 +1441,63 @@ global_variable = 0
 static_variable = 0
 */
 
+/*
+...40- Memory Layout:
+4. Stack
+this segment follows the LIFO (Last In First Out) structure and grows down to the lower address,
+Stack grows in the direction opposite to heap.
+Stack segment stores the value of local variables and values of parameters passed to a function 
+along with some additional information like the instruction's return address, which is to be
+ executed after a function call
+*/
+
+/*
+...40- Memory Layout:
+Example: Complete Example
+*/
+#include<stdio.h>
+#include <stdlib.h>
+
+
+//Initialized data segment
+const hello* = "Data segment";
+int global_var = 50;
+char* hello = "Hello World";
+const int global_var2 = 30;
+
+// Uninitialized global variable stored in the bss segment
+int global_variable; 
+
+//Stack
+void foo() {
+    // local variables stored in the stack
+    // when the function call is made
+    int a, b;
+}
+
+int main() {
+    // static variable stored in initialized data segment
+    static int a = 10; 
+    // ...
+	
+	    // Uninitialized static variable stored in bss
+    static int static_variable;
+    
+    // ..
+    printf("global_variable = %d\n", global_variable);
+    printf("static_variable = %d\n", static_variable);
+	
+    // local variables stored in the stack
+    int local = 5;
+    char name[26];
+    foo();
+    // ..
+	
+	    // memory allocated in heap segment
+    char *var = (char*) malloc ( sizeof(char) ); 
+	
+    return 0;
+}
 
 
 /*
