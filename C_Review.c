@@ -11,40 +11,40 @@ Autors Name: Email : ListNumber/s
 
 */
 /*___List___:
-1-Volatile Variable. 
-2-Void Pointer.
-3-Interrupt Latency.
-4-printf() and scanf() functions.
-5-Difference between local variable and global variable.
-6-Difference between call by value and call by reference.
-7-Recursion.
-8-array.
-9-pointer.
-10-NULL pointer.
-11-far pointer.
-12-dangling pointer.
-13-pointer to pointer.
-14-Static memory allocation.
-15-Dynamic memory allocation.
-16-structure.
-17-union.
-18-auto variable.
-19-purpose of sprintf() function.
-20-can we Compile program without main() function?.
-21-command line argument.
-22-difference between getch() and getche().
-23-difference between near, far and huge pointer.
-24-typecasting.
-25-Access the array using a pointer.
-26-Infinite For Loop.
-27-write a program to print "hello world" without using a semicolon.
-28-write a program to swap two numbers without using the third variable.
-29-print Fibonancci series without using recursion.
-30-print Fibonancci series with using recursion.
-31-pointer using examples.
-32- CI/CD pipeline
-33- Complex Code to write Hello World
-34- K&R style function definition in C
+1-Volatile Variable. (Line: 50)
+2-Void Pointer. (134)
+3-Interrupt Latency. (162)
+4-printf() and scanf() functions. (184)
+5-Difference between local variable and global variable. (204)
+6-Difference between call by value and call by reference. (231)
+7-Recursion. (302)
+8-array. (333)
+9-pointer. (359)
+10-NULL pointer. (389)
+11-far pointer.(399)
+12-dangling pointer. (408)
+13-pointer to pointer. (433)
+14-Static memory allocation. (498)
+15-Dynamic memory allocation. (514)
+16-structure. (543)
+17-union. (587)
+18-auto variable. (641)
+19-purpose of sprintf() function.(653)
+20-can we Compile program without main() function?.(675)
+21-command line argument. (690)
+22-difference between getch() and getche(). (701)
+23-difference between near, far and huge pointer.(734)
+24-typecasting. (771)
+25-Access the array using a pointer.(782)
+26-Infinite For Loop.(823)
+27-write a program to print "hello world" without using a semicolon.(843)
+28-write a program to swap two numbers without using the third variable.(852)
+29-print Fibonancci series without using recursion.(869)
+30-print Fibonancci series with using recursion.(892)
+31-pointer using examples.(922)
+32- CI/CD pipeline(940)
+33- Complex Code to write Hello World(959)
+34- K&R style function definition in C(999)
 */
 
 /*1-Volatile Variable:
@@ -638,7 +638,7 @@ int main()
 ///value of ch is a  
 
 /*
-18-union
+18-auto variable
 Description:
 In C, every local variable of a function is known as an automatic (auto) variable.
 variable. Variables which are declared inside the function block are known as a
